@@ -1,6 +1,6 @@
 ﻿namespace Ejercicio4
 {
-    partial class Form1
+    partial class Ejercicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,13 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dibujoAhorcado1 = new DibujoAhorcado.DibujoAhorcado();
+            this.SuspendLayout();
+            // 
+            // dibujoAhorcado1
+            // 
+            this.dibujoAhorcado1.Errores = 7;
+            this.dibujoAhorcado1.Location = new System.Drawing.Point(75, 45);
+            this.dibujoAhorcado1.Name = "dibujoAhorcado1";
+            this.dibujoAhorcado1.Size = new System.Drawing.Size(171, 170);
+            this.dibujoAhorcado1.TabIndex = 0;
+            // 
+            // Ejercicio
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Controls.Add(this.dibujoAhorcado1);
+            this.Name = "Ejercicio";
+            this.Text = "Ejercicio";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DibujoAhorcado.DibujoAhorcado dibujoAhorcado1;
     }
 }
 
