@@ -33,7 +33,7 @@
             // 
             // dibujoAhorcado1
             // 
-            this.dibujoAhorcado1.Errores = 7;
+            this.dibujoAhorcado1.Errores = 0;
             this.dibujoAhorcado1.Location = new System.Drawing.Point(75, 45);
             this.dibujoAhorcado1.Name = "dibujoAhorcado1";
             this.dibujoAhorcado1.Size = new System.Drawing.Size(171, 170);

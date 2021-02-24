@@ -22,6 +22,7 @@ namespace DibujoAhorcado
             set
             {
                 errores = value;
+                this.Refresh();
 
                 Ahorcado?.Invoke(this, EventArgs.Empty); // Lanzo el evento cambiaError cuando cambia el valor de la propiedad errores
             }

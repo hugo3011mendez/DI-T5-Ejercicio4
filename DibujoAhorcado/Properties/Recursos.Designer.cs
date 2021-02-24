@@ -61,7 +61,7 @@ namespace DibujoAhorcado.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ejercicio4.
+        ///   Busca una cadena traducida similar a Diseño de Interfaces.
         /// </summary>
         internal static string Modulo {
             get {
