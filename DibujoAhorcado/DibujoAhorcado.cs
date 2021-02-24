@@ -21,6 +21,8 @@ namespace DibujoAhorcado
             set
             {
                 errores = value;
+
+                Ahorcado?.Invoke(this, EventArgs.Empty); // Lanzo el evento cambiaError cuando cambia el valor de la propiedad errores
             }
 
             get
@@ -28,6 +30,16 @@ namespace DibujoAhorcado
                 return errores;
             }
         }
+
+
+        [Category("Errores")]
+        [Description("Se lanza cuando cambia el valor de los errores")]
+        public event EventHandler CambiaError;
+
+        [Category("Errores")]
+        [Description("Se lanza cuando se completa el ahorcado")]
+        public event EventHandler Ahorcado;
+
 
 
         public DibujoAhorcado()
@@ -77,20 +89,22 @@ namespace DibujoAhorcado
                     g.DrawLine(lapiz, this.Width / 2f, this.Height / 5 + this.Width / 6.5f, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 2);
                     goto case 2;
 
-                case 4: // Añado brazo izquierdo
-                    g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 1.25f, this.Width / 3.5f, (this.Height / 5 + this.Width / 6.5f) * 1.25f);
+                case 4: // Añado brazo derecho
+                    g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 1.25f, this.Width / 1.45f, (this.Height / 5 + this.Width / 6.5f) * 1.25f);
                     goto case 3;
 
-                case 5: // Añado brazo derecho
-                    g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 1.25f, this.Width / 1.45f, (this.Height / 5 + this.Width / 6.5f) * 1.25f);
+                case 5: // Añado brazo izquierdo
+                    g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 1.25f, this.Width / 3.5f, (this.Height / 5 + this.Width / 6.5f) * 1.25f);
                     goto case 4;
 
                 case 6: // Añado pierna izquierda
                     g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 2, this.Width / 3f, ((this.Height / 5 + this.Width / 6.5f) * 2) * 1.25f);
                     goto case 5;
 
-                case 7:
+                case 7: // Añado pierna derecha
                     g.DrawLine(lapiz, this.Width / 2f, (this.Height / 5 + this.Width / 6.5f) * 2, this.Width / 1.45f, ((this.Height / 5 + this.Width / 6.5f) * 2) * 1.25f);
+
+                    Ahorcado?.Invoke(this, EventArgs.Empty); // Lanzo el evento Ahorcado cuando llega al final
                     goto case 6;
             }
         }
