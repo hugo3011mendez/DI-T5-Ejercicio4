@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Globalization;
 
 namespace DibujoAhorcado
 {
     public partial class DibujoAhorcado : UserControl
     {
-
         int errores;
         [Category("Errores")]
         [Description("Indica el número de errores cometidos")]
@@ -44,6 +45,11 @@ namespace DibujoAhorcado
 
         public DibujoAhorcado()
         {
+            if (Thread.CurrentThread.CurrentUICulture == CultureInfo.GetCultureInfo("en"))
+            {
+                Console.WriteLine(Properties.Recursos.Modulo);
+            }
+
             InitializeComponent();
         }
 
